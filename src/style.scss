@@ -1,0 +1,21 @@
+:root {
+  --nut-indicator-bg-color: #1989fa !important;
+  --nut-indicator-dot-color: #1989fa !important;
+  --nut-fixednav-btn-bg: #1989fa !important;
+}
+.nut-popup {
+  background: #f7f8fa !important;
+}
+.van-image-preview__swipe {
+  z-index: 9999 !important;
+}
+* {
+  transition: flex-basis 0.2s;
+}
+.el-textarea__inner {
+  box-shadow: none !important;
+}
+
+.el-textarea__inner:hover {
+  box-shadow: none !important;
+}
