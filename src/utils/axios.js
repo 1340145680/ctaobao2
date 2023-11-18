@@ -1,5 +1,12 @@
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:808";
+let baseURL;
+
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:808';
+} else if (process.env.NODE_ENV === 'production') {
+  baseURL = 'http://60.172.196.134:55236';
+}
+axios.defaults.baseURL = baseURL
 
 // 添加响应拦截器
 axios.interceptors.response.use(

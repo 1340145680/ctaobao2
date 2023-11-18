@@ -6,7 +6,7 @@ import main from "@pinia";
 onMounted(() => {
   let url = localStorage.getItem("url");
   if (!url) {
-    localStorage.setItem("url", "http://localhost:810");
+    localStorage.setItem("url", $baseUrl);
   }
   main().io();
 });
