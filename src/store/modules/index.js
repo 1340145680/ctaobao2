@@ -79,7 +79,6 @@ const main = defineStore("main", {
               msg: data.$msg,
               time: new Date().getTime(),
             };
-            self.chatInfo.new_message = [];
             self.msgList.push(msg);
             self.chatInfo.state.last_msg_identity = "客服";
             self.chatInfo.history.push({ identity: "客服", type: "消息", time: new Date().getTime(), message: data.$msg, read: "已读" });
@@ -99,7 +98,6 @@ const main = defineStore("main", {
       this.chatInfo = {
         state: {},
         history: [],
-        new_message: [],
         other: {
           read: "已读",
           id: uuid,
@@ -116,7 +114,6 @@ const main = defineStore("main", {
       this.msgList.push(msg);
       setInterval(() => {
         if (this.time) {
-             console.log("%c Line:120 🥑", "background:#465975");
           this.io.emit("polling", this.chatInfo);
         }
       }, 2000);
@@ -130,6 +127,7 @@ const main = defineStore("main", {
         ElMessage.error("测试已结束,请刷新页面重新测试");
         return;
       }
+      this.time = false;
       this.inputState = true;
       this.tempMsg = {
         type: "message",
@@ -144,7 +142,6 @@ const main = defineStore("main", {
       let value = { identity: "用户", type: "消息", time: "", message: msg };
       value.time = new Date().getTime();
       this.chatInfo.history.push(value);
-      this.chatInfo.new_message.push(value);
       this.chatInfo.state.last_msg_identity = value.identity;
       this.time = true;
     },
