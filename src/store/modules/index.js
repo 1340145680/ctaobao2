@@ -46,6 +46,13 @@ const main = defineStore("main", {
           type: "error",
         });
       });
+      this.io.on("end", function (msg) {
+        ElMessage.warning({
+          message: msg,
+          type: "warning",
+        });
+        self.time = false;
+      });
       this.io.on("card", async function (data) {
         console.log("%c Line:50 🍫 data", "background:#f5ce50", data);
         if (data.type == "商品付款") {
