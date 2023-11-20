@@ -76,7 +76,14 @@ const main = defineStore("main", {
       }),
         this.io.on("reply", async function (data) {
           if (data.$manually) {
+            ElNotification({
+              title: "转人工原因",
+              message: data.$msg,
+              type: "warning",
+              duration: 0,
+            });
             self.manually = true;
+            self.time = false;
             return;
           }
           if (self.chatInfo.other.id == data.$id) {
