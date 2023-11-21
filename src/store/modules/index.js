@@ -47,9 +47,11 @@ const main = defineStore("main", {
         });
       });
       this.io.on("end", function (msg) {
-        ElMessage.warning({
+        ElNotification({
+          title: "结束",
           message: msg,
           type: "warning",
+          duration: 0,
         });
         self.time = false;
       });
