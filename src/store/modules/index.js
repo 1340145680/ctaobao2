@@ -53,10 +53,11 @@ const main = defineStore("main", {
           type: "warning",
           duration: 0,
         });
-        self.time = false;
+        setTimeout(() => {
+          self.time = false;
+        }, 10000);
       });
       this.io.on("card", async function (data) {
-        console.log("%c Line:50 🍫 data", "background:#f5ce50", data);
         if (data.type == "商品付款") {
           self.msgList.push({
             identity: "cs",
@@ -130,6 +131,7 @@ const main = defineStore("main", {
       this.msgList.push(msg);
       setInterval(() => {
         if (this.time) {
+          console.log("%c Line:135 🎂", "background:#93c0a4");
           this.io.emit("polling", this.chatInfo);
         }
       }, 2000);
