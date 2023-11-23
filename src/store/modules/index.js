@@ -53,7 +53,9 @@ const main = defineStore("main", {
           type: "warning",
           duration: 0,
         });
-        self.time = false;
+        setTimeout(() => {
+          self.time = false;
+        }, 10000);
       });
       this.io.on("card", async function (data) {
         console.log("%c Line:50 🍫 data", "background:#f5ce50", data);
