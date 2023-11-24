@@ -78,6 +78,7 @@ const main = defineStore("main", {
         }
       }),
         this.io.on("reply", async function (data) {
+          console.log("%c Line:81 🥤 data", "background:#4fff4B", data);
           if (data.$manually) {
             ElNotification({
               title: "转人工原因",
@@ -98,7 +99,14 @@ const main = defineStore("main", {
             };
             self.msgList.push(msg);
             self.chatInfo.state.last_msg_identity = "客服";
-            self.chatInfo.history.push({ identity: "客服", type: "消息", time: new Date().getTime(), message: data.$msg, read: "已读" });
+            self.chatInfo.history.push({
+              identity: "客服",
+              type: "消息",
+              time: new Date().getTime(),
+              message: data.$msg,
+              read: "已读",
+              mean: data.$mean,
+            });
           }
           self.inputState = false;
         });
