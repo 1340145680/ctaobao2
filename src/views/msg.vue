@@ -83,6 +83,7 @@ const isScrolledToBottom = ref(false);
 const logRef = ref(null);
 onMounted(async () => {
   await nextTick();
+  inputRef.value.focus();
   logRef.value.addEventListener("scroll", () => {
     if (logRef.value.scrollTop + logRef.value.clientHeight === logRef.value.scrollHeight) {
       isScrolledToBottom.value = true;
