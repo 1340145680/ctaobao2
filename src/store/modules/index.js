@@ -53,15 +53,13 @@ const main = defineStore("main", {
           type: "warning",
           duration: 0,
         });
-        setTimeout(() => {
-          self.time = false;
-        }, 10000);
+        self.time = false;
       });
       this.io.on("card", async function (data) {
         if (data.type == "商品付款") {
           self.msgList.push({
             identity: "cs",
-            name: "麻瓜",
+            name: "超级麻瓜",
             time: new Date().getTime(),
             unpaid: true,
             price: data.price,
@@ -71,7 +69,7 @@ const main = defineStore("main", {
         if (data.type == "商品链接") {
           self.msgList.push({
             identity: "cs",
-            name: "麻瓜",
+            name: "超级麻瓜",
             time: new Date().getTime(),
             cardurl: true,
           });
@@ -93,7 +91,7 @@ const main = defineStore("main", {
           if (self.chatInfo.other.id == data.$id) {
             let msg = {
               identity: "cs",
-              name: "麻瓜",
+              name: "超级麻瓜",
               msg: data.$msg,
               time: new Date().getTime(),
             };
@@ -132,7 +130,7 @@ const main = defineStore("main", {
       };
       let msg = {
         identity: "cs",
-        name: "麻瓜",
+        name: "超级麻瓜",
         msg: "金币输入1,其他输入2",
         time: new Date().getTime(),
       };
@@ -142,7 +140,7 @@ const main = defineStore("main", {
           console.log("%c Line:135 🎂", "background:#93c0a4");
           this.io.emit("polling", this.chatInfo);
         }
-      }, 2000);
+      }, 500);
     },
     sendMsg(msg) {
       if (!msg) {
