@@ -149,7 +149,7 @@ const main = defineStore("main", {
           console.log("%c Line:141 🥝", "background:#6ec1c2");
           this.io.emit("polling", this.chatInfo);
         }
-      }, 2000);
+      }, 200);
     },
     sendMsg(msg) {
       if (!msg) {
