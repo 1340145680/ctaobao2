@@ -13,27 +13,27 @@
     <div id="app"></div>
     <script>
       // const $baseUrl = "http://localhost:810";
-      const $baseUrl = "http://60.172.196.134:55237/";
-      checkPassword();
+      const $baseUrl = "http://test.lctools.com/";
+      // checkPassword();
 
-      function checkPassword() {
-        var storedPassword = localStorage.getItem("password");
+      // function checkPassword() {
+      //   var storedPassword = localStorage.getItem("password");
 
-        if (storedPassword == "55234") {
-          // 密码正确，不做任何事
-          return;
-        } else {
-          // 密码不正确，提示用户输入
-          var inputPassword = prompt("输入正确密码才能登陆!");
-          if (inputPassword == "55234") {
-            // 如果用户输入正确的密码，将其存储到 localStorage
-            localStorage.setItem("password", inputPassword);
-          } else {
-            // 如果密码仍然不正确，再次调用这个函数
-            checkPassword();
-          }
-        }
-      }
+      //   if (storedPassword == "55234") {
+      //     // 密码正确，不做任何事
+      //     return;
+      //   } else {
+      //     // 密码不正确，提示用户输入
+      //     var inputPassword = prompt("输入正确密码才能登陆!");
+      //     if (inputPassword == "55234") {
+      //       // 如果用户输入正确的密码，将其存储到 localStorage
+      //       localStorage.setItem("password", inputPassword);
+      //     } else {
+      //       // 如果密码仍然不正确，再次调用这个函数
+      //       checkPassword();
+      //     }
+      //   }
+      // }
     </script>
     <script type="module" src="/src/main.js"></script>
   </body>

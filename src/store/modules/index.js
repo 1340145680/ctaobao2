@@ -40,6 +40,7 @@ const main = defineStore("main", {
         self.newChat();
       });
       this.io.on("connect_error", function (error) {
+        console.log("%c Line:43 🍊 error", "background:#4fff4B", error);
         ElNotification({
           title: "错误",
           message: "连接服务器失败",
@@ -120,7 +121,15 @@ const main = defineStore("main", {
       let uuid = v4();
       this.chatInfo = {
         state: {},
-        history: [],
+        history: [
+          // {
+          //   identity: "客服",
+          //   type: "消息",
+          //   time: 1701329029895,
+          //   message: "金币1",
+          //   read: "已读",
+          // },
+        ],
         other: {
           read: "已读",
           id: uuid,
@@ -137,10 +146,10 @@ const main = defineStore("main", {
       this.msgList.push(msg);
       setInterval(() => {
         if (this.time) {
-          console.log("%c Line:135 🎂", "background:#93c0a4");
+          console.log("%c Line:141 🥝", "background:#6ec1c2");
           this.io.emit("polling", this.chatInfo);
         }
-      }, 500);
+      }, 2000);
     },
     sendMsg(msg) {
       if (!msg) {
