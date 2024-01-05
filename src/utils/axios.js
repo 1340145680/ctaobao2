@@ -4,7 +4,7 @@ let baseURL;
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:808';
 } else if (process.env.NODE_ENV === 'production') {
-  baseURL = 'http://60.172.196.134:55236';
+  baseURL = 'https://test.lctools.com';
 }
 axios.defaults.baseURL = baseURL
 

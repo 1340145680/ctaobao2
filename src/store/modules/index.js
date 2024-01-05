@@ -135,6 +135,7 @@ const main = defineStore("main", {
           id: uuid,
           cs_id: "0000000",
           user_id: uuid,
+          test: true,
         },
       };
       let msg = {
