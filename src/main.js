@@ -2,9 +2,9 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router/index";
 
-import './style.css'
-import './style.scss'
-import '@/utils/rem';
+import "./style.css";
+import "./style.scss";
+import "@/utils/rem";
 
 import Vant from "vant";
 import "vant/lib/index.css";
@@ -21,7 +21,6 @@ import "@icon-park/vue-next/styles/index.css";
 import { install } from "@icon-park/vue-next/es/all";
 
 import Vue3TouchEvents from "vue3-touch-events";
-
 // import "@/util/rem.js";
 // import Vue3Lottie from "vue3-lottie";
 // import "vue3-lottie/dist/style.css";
