@@ -21,12 +21,12 @@
             <el-card class="card">
               <el-alert title="向量库1" type="success" :closable="false" style="margin-bottom: 20px">
                 <template #default>
-                  <div>123</div>
+                  <div class="m">{{ m1 }}</div>
                 </template>
               </el-alert>
               <el-alert title="向量库2" type="warning" :closable="false">
                 <template #default>
-                  <div>123</div>
+                  <div class="m">{{ m2 }}</div>
                 </template>
               </el-alert>
             </el-card>
@@ -69,7 +69,7 @@ const json = ref({
 //==
 const socket = ref(null);
 onMounted(() => {
-  socket.value = io(socketData.value.baseUrl, { query: socketData.value.data });
+  socket.value = io("http://localhost:810", { query: socketData.value.data });
   socket.value.on("connect", function () {
     ElNotification({
       title: "成功",
@@ -79,6 +79,10 @@ onMounted(() => {
   });
 });
 const gptInput = ref("");
+
+const m1 = ref("");
+const m2 = ref("");
+
 
 function run() {
   if (!gptInput.value) {
@@ -96,6 +100,8 @@ function run() {
     },
     (data) => {
       console.log("%c Line:98 🍎 data", "background:#42b983", data);
+      m1.value = data.m1
+      m2.value = data.m2
     }
   );
 }
@@ -111,8 +117,12 @@ function run() {
   }
   .card {
     height: 100%;
+    
   }
   .gptInputBox {
   }
 }
+.m{
+  white-space: pre-wrap;
+    }
 </style>
